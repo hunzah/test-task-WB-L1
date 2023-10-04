@@ -1,0 +1,5 @@
+.styled-button {
+    background-color: blueviolet;
+    color: white;
+    transition: background-color 4.5s, width 0.5s, height 0.5s;
+}

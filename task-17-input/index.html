@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адрес</title>
+    <!-- Внутренные стили для упрощения примера. -->
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            align-items: center;
+        }
+
+        #addressInput {
+            width: 400px;
+            height: 30px;
+            font-size: 18px;
+        }
+
+        #suggestionsList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 400px;
+            position: absolute;
+            display: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        #suggestionsList li {
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        #suggestionsList li:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="addressInput" placeholder="Введите адрес" name="addressInput">
+        <ul id="suggestionsList"></ul>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

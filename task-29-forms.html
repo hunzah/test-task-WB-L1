@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма</title>
+</head>
+<body>
+    <h1>Пример формы</h1>
+    <form id="myForm">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <input type="submit" value="Отправить">
+    </form>
+
+    <script>
+        // Получаем форму по ее идентификатору
+        const form = document.getElementById('myForm');
+
+        // Добавляем слушатель события "submit" на форму
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Предотвращаем отправку формы по умолчанию
+
+            // Получаем значения полей формы
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            // Выводим данные во всплывающем окне
+            alert(`Имя: ${name}\nEmail: ${email}`);
+        });
+    </script>
+</body>
+</html>

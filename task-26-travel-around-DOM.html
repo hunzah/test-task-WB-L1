@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рекурсивный обход дерева DOM</title>
+</head>
+<body>
+    <div id="root">
+        <h1>Заголовок</h1>
+        <p>Текст параграфа</p>
+        <ul>
+            <li>первый</li>
+            <li>второй</li>
+        </ul>
+    </div>
+
+    <script>
+// Функция для рекурсивного обхода дерева DOM
+const traverseDOM = (node, callback) => {
+    if (node.nodeType === Node.ELEMENT_NODE) {
+        // Выполняем действие с текущим узлом
+        callback(node);
+
+        // Рекурсивно обходим дочерние узлы
+        for (let i = 0; i < node.childNodes.length; i++) {
+            traverseDOM(node.childNodes[i], callback);
+        }
+    }
+}
+
+// Функция добавляет текст "(измененный)" к каждому li элементу
+const logNodeInfo = (node) => {
+    // Проверяем, является ли узел элементом <li>
+    if (node.tagName === 'LI') {
+        // Добавляем текст "(измененный)" к содержимому элемента
+        node.textContent += ' (измененный)';
+    }
+}
+
+// Начинаем обход с корневого элемента (div с id "root")
+const rootElement = document.getElementById('root');
+traverseDOM(rootElement, logNodeInfo);
+    </script>
+</body>
+</html>

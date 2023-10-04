@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>docWrite</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>
+            <script>
+                let count = 0;
+                const a = () => {
+                    document.write(document.write(`${count++}`));
+                    try {
+                        a();
+                    } catch (e) {
+                        console.log("Максимальное количество вызовов document.write(): " + count);
+                    }
+                }
+                a()
+                // Метод document.write() работает только пока HTML-страница находится в процессе загрузки. 
+                // Он дописывает текст в текущее место HTML ещё до того, как браузер построит из него DOM.
+                // В браузерах стоит ограничение на вызов этой функции в Google порказывает 8945 вызовов
+            </script>
+        </li>
+        <li>2</li>
+    </ul>
+
+</body>
+</html>

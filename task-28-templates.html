@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавление элемента с использованием шаблонов</title>
+</head>
+<body>
+    <h1>Список элементов</h1>
+    <ul id="myList">
+        <!-- Здесь будет добавлен новый элемент с использованием шаблона -->
+    </ul>
+
+    <template id="listItemTemplate">
+        <li>Новый элемент</li>
+    </template>
+
+    <script>
+        // Получаем ссылку на элемент шаблона
+        const listItemTemplate = document.getElementById('listItemTemplate');
+
+        // Создаем копию элемента из шаблона
+        const newItem = document.importNode(listItemTemplate.content, true);
+
+        // Можно модифицировать созданный элемент, например, установить текст
+        newItem.querySelector('li').textContent = 'Новый элемент списка';
+
+        // Получаем ссылку на ul, куда добавим новый элемент
+        const myList = document.getElementById('myList');
+
+        // Добавляем новый элемент в список
+        myList.appendChild(newItem);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callstack</title>
+</head>
+
+<body>
+    <script> 
+     // создаем счетчик которым будем заполнять стэк 
+    let count = 0;
+        const a = () => {
+            // создаем функцию которая будет заполнять стэк 
+            count++;
+            a();
+        }
+        try {
+            // вызываем пока не выпадет ошибка 
+            a();
+        } catch (e) {
+            // код попадает сюда и мы получаем Максимальная глубина коллстэка
+            alert("Максимальная глубина коллстэка: " + count);
+        }
+        // ткперь нужно запустить этот код в разных браузерах вот мои результаты: Google: 13915 Microsoft Edge: 13957 у меня к сожалению нету Opera и FireFox что бы проверить 
+        </script>
+</body>
+
+</html>
